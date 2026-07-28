@@ -413,9 +413,39 @@ h3 {
   color: var(--accent);
 }
 
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .project-card p {
   color: var(--muted);
   margin: 0;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.project-link svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.15s ease;
+}
+
+.project-link:hover svg {
+  transform: translateX(3px);
 }
 
 /* Chips */
@@ -563,6 +593,73 @@ h3 {
   color: white;
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+/* Project detail modal */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 20, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 200;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  box-shadow: var(--shadow-hover);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-body h3 {
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+}
+
+.modal-body p {
+  color: var(--muted);
+}
+
+.modal-body ul {
+  color: var(--muted);
+  padding-left: 1.2rem;
+  margin: 0.75rem 0;
+}
+
+.modal-body li + li {
+  margin-top: 0.4rem;
+}
+
+.modal-body .chip-list {
+  margin-top: 1rem;
 }
 
 /* Contact */

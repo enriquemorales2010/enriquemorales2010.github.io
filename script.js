@@ -51,9 +51,39 @@
       closeLightbox();
     }
   });
+
+  var projectModal = document.getElementById("projectModal");
+  var projectModalBody = document.getElementById("projectModalBody");
+  var projectModalClose = document.getElementById("projectModalClose");
+
+  document.querySelectorAll(".project-link").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var templateId = link.getAttribute("data-project");
+      var template = document.getElementById(templateId);
+      if (!template) {
+        return;
+      }
+      projectModalBody.innerHTML = "";
+      projectModalBody.appendChild(template.content.cloneNode(true));
+      projectModal.hidden = false;
+    });
+  });
+
+  function closeProjectModal() {
+    projectModal.hidden = true;
+  }
+
+  projectModalClose.addEventListener("click", closeProjectModal);
+  projectModal.addEventListener("click", function (event) {
+    if (event.target === projectModal) {
+      closeProjectModal();
+    }
+  });
+
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       closeLightbox();
+      closeProjectModal();
     }
   });
 })();
