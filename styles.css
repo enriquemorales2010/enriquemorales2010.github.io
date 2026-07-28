@@ -31,23 +31,9 @@
   --shadow-hover: 0 18px 44px rgba(0, 0, 0, 0.45);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #14161b;
-    --card: #1c1f26;
-    --card-border: #2b2f38;
-    --text: #e8e9ec;
-    --muted: #9a9fab;
-    --accent: #7a9cc4;
-    --accent-strong: #9db8d6;
-    --accent-soft: rgba(122, 156, 196, 0.14);
-    --accent-fill: #35547c;
-    --accent-fill-hover: #40638f;
-    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-    --shadow-hover: 0 18px 44px rgba(0, 0, 0, 0.45);
-  }
-}
+/* El sitio es blanco por defecto siempre; el modo oscuro solo se activa
+   si la persona lo elige explicitamente con el boton de tema (ver script.js),
+   sin seguir la preferencia del sistema operativo. */
 
 * {
   box-sizing: border-box;
@@ -182,16 +168,6 @@ svg {
 
 :root[data-theme="dark"] .icon-moon {
   display: block;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .icon-sun {
-    display: none;
-  }
-
-  :root:not([data-theme="light"]) .icon-moon {
-    display: block;
-  }
 }
 
 .nav-toggle {
