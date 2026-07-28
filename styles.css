@@ -1,28 +1,32 @@
 :root {
   color-scheme: light;
-  --bg: #f4f7fb;
+  --bg: #f8f9fb;
   --card: #ffffff;
-  --card-border: #e5e9f0;
-  --text: #14213d;
-  --muted: #5e6b85;
-  --accent: #2563eb;
-  --accent-strong: #1d4ed8;
-  --accent-soft: #dbeafe;
-  --shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
-  --shadow-hover: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --card-border: #e2e4e9;
+  --text: #1a1d24;
+  --muted: #5e6472;
+  --accent: #1e3a5f;
+  --accent-strong: #16304d;
+  --accent-soft: #e8edf3;
+  --accent-fill: #1e3a5f;
+  --accent-fill-hover: #16304d;
+  --shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 18px 40px rgba(15, 23, 42, 0.1);
   --radius: 1rem;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0b1220;
-  --card: #121b2e;
-  --card-border: #223047;
-  --text: #e6ebf5;
-  --muted: #97a4bd;
-  --accent: #5b8dfd;
-  --accent-strong: #7ba1ff;
-  --accent-soft: rgba(91, 141, 253, 0.16);
+  --bg: #14161b;
+  --card: #1c1f26;
+  --card-border: #2b2f38;
+  --text: #e8e9ec;
+  --muted: #9a9fab;
+  --accent: #7a9cc4;
+  --accent-strong: #9db8d6;
+  --accent-soft: rgba(122, 156, 196, 0.14);
+  --accent-fill: #35547c;
+  --accent-fill-hover: #40638f;
   --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
   --shadow-hover: 0 18px 44px rgba(0, 0, 0, 0.45);
 }
@@ -30,14 +34,16 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0b1220;
-    --card: #121b2e;
-    --card-border: #223047;
-    --text: #e6ebf5;
-    --muted: #97a4bd;
-    --accent: #5b8dfd;
-    --accent-strong: #7ba1ff;
-    --accent-soft: rgba(91, 141, 253, 0.16);
+    --bg: #14161b;
+    --card: #1c1f26;
+    --card-border: #2b2f38;
+    --text: #e8e9ec;
+    --muted: #9a9fab;
+    --accent: #7a9cc4;
+    --accent-strong: #9db8d6;
+    --accent-soft: rgba(122, 156, 196, 0.14);
+    --accent-fill: #35547c;
+    --accent-fill-hover: #40638f;
     --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
     --shadow-hover: 0 18px 44px rgba(0, 0, 0, 0.45);
   }
@@ -70,7 +76,7 @@ svg {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--accent);
+  background: var(--accent-fill);
   color: white;
   padding: 0.6rem 1rem;
   border-radius: 0 0 0.5rem 0;
@@ -118,7 +124,7 @@ svg {
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 0.6rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  background: var(--accent-fill);
   color: white;
   font-size: 0.85rem;
   letter-spacing: 0.02em;
@@ -210,16 +216,18 @@ svg {
 .hero {
   position: relative;
   padding: 4.5rem 1.5rem 3.5rem;
-  background: linear-gradient(135deg, #0f172a, #1d4ed8 60%, #2563eb);
-  color: white;
+  background: var(--bg);
+  color: var(--text);
+  border-bottom: 1px solid var(--card-border);
   overflow: hidden;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.12), transparent 40%),
-    radial-gradient(circle at 85% 0%, rgba(255, 255, 255, 0.1), transparent 45%);
+  background-image: radial-gradient(circle at 15% 20%, var(--accent-soft), transparent 40%),
+    radial-gradient(circle at 85% 0%, var(--accent-soft), transparent 45%);
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -233,7 +241,8 @@ svg {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.8rem;
-  opacity: 0.9;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 h1 {
@@ -244,7 +253,7 @@ h1 {
 .intro {
   font-size: 1.08rem;
   max-width: 720px;
-  color: #e2e8f0;
+  color: var(--muted);
 }
 
 .hero-actions {
@@ -277,27 +286,26 @@ h1 {
 }
 
 .btn-primary {
-  background: white;
-  color: #0f172a;
+  background: var(--accent-fill);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-fill-hover);
 }
 
 .btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: white;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  background: var(--card);
 }
 
 .btn-cv {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 0.9rem;
-  padding: 0.65rem 1.1rem;
-}
-
-.contact .btn-cv {
   background: var(--accent-soft);
   color: var(--accent);
-  border: none;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.1rem;
 }
 
 /* Stat grid (KPI cards, "app dashboard" feel) */
@@ -310,11 +318,11 @@ h1 {
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--card);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 1.1rem 1.2rem;
-  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
 }
 
 .stat-value {
@@ -322,13 +330,14 @@ h1 {
   font-size: 1.9rem;
   font-weight: 800;
   line-height: 1;
+  color: var(--accent);
 }
 
 .stat-label {
   display: block;
   margin-top: 0.4rem;
   font-size: 0.85rem;
-  color: #cbd5e1;
+  color: var(--muted);
 }
 
 /* Main sections */
