@@ -1,0 +1,5 @@
+# Capturas originales sin editar (pueden contener datos sensibles de clientes)
+Dashboard/
+
+# Entorno virtual de Python usado para herramientas locales
+.venv/
