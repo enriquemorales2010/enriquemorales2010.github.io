@@ -557,6 +557,85 @@ h3 {
   font-size: 0.88rem;
 }
 
+/* Power BI live embed */
+
+.powerbi-live {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.25rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.powerbi-live-info {
+  margin-bottom: 1rem;
+}
+
+.powerbi-live-info h3 {
+  margin: 0.35rem 0 0.35rem;
+}
+
+.powerbi-live-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d13438;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.live-badge::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #d13438;
+  animation: powerbi-live-pulse 1.6s infinite;
+}
+
+@keyframes powerbi-live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.powerbi-live-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 0.7rem 0.7rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  border-bottom: none;
+}
+
+.powerbi-live-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .powerbi-live-frame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
 /* Lightbox */
 
 .lightbox {
